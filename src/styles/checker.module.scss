@@ -1,0 +1,28 @@
+@import './variables.scss';
+
+.entry {
+  border: 2px solid $color-gray;
+  height: 200px;
+  padding: 10px;
+  width: 100%;
+
+  &.valid {
+    border-color: $color-green;
+  }
+
+  &:focus {
+    outline-offset: 0;
+    outline: none;
+  }
+}
+
+.status {
+  color: $color-orange;
+  text-align: right;
+  margin-bottom: 0;
+  width: 100%;
+
+  &.valid {
+    color: $color-green;
+  }
+}
