@@ -29,13 +29,11 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: 'UA-4209783-2',
-        head: false,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: 'pangramchecker.com',
+        trackingIds: [
+          "UA-4209783-2", // Google Analytics / GA
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
