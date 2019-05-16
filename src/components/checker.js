@@ -1,25 +1,20 @@
 import React from "react"
 
 import styles from "../styles/checker.module.scss"
+import MissingLetters from "./missing-letters";
 
-class Header extends React.Component {
+class Checker extends React.Component {
   constructor() {
     super();
     this.state = {
-      characterCount: 0,
       valid: false,
+      text: '',
     };
   }
 
-  checkLength(text) {
-    this.setState({
-      characterCount: text.length
-    });
-  }
-
-  validate(text) {
+  validate() {
     const regex = /([a-z])(?!.*\1)/g;
-    const matches = text.toLowerCase().match(regex);
+    const matches = this.state.text.toLowerCase().match(regex);
     if (matches) {
       const isValid = matches.length === 26 ?
         true :
@@ -31,28 +26,29 @@ class Header extends React.Component {
   }
 
   textChanged(event) {
-    const input = event.target.value || '';
-    this.checkLength(input);
-    this.validate(input);
+    this.setState({
+      text: event.target.value || ''
+    }, () => this.validate());
   }
 
   render() {
     return (
       <>
-      <p
-        className={`${styles.status} ${this.state.valid ? styles.valid : ""}`}
-      >
-        {this.state.valid ? "Valid" : "Invalid"}
-      </p>
+        <p
+          className={`${styles.status} ${this.state.valid ? styles.valid : ""}`}
+        >
+          {this.state.valid ? "Valid" : "Invalid"}
+        </p>
         <textarea
           className={`${styles.entry} ${this.state.valid ? styles.valid : ""}`}
           onChange={this.textChanged.bind(this)}
         >
         </textarea>
-        <p>Characters: {this.state.characterCount}</p>
+        <p>Characters: {this.state.text.length}</p>
+        <MissingLetters text={this.state.text} />
       </>
     );
   }
 }
 
-export default Header
+export default Checker

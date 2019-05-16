@@ -1,0 +1,29 @@
+@import './variables.scss';
+
+.missingLetters {
+  margin-bottom: 75px;
+  display: flex;
+  flex-direction: row;
+  opacity: 1;
+
+  &.valid {
+    opacity: 0;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  li {
+    background-color: $color-gray;
+    color: $color-white;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.1rem;
+    list-style-type: none;
+    padding: 5px;
+    margin: 0 2px 4px;
+  }
+}
