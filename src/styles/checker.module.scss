@@ -1,4 +1,9 @@
 @import './variables.scss';
+@import './layout.scss';
+
+.checker {
+  max-width: 960px;
+}
 
 .entry {
   border: 2px solid $color-gray;

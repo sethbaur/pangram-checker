@@ -4,12 +4,16 @@ import styles from "../styles/checker.module.scss"
 import MissingLetters from "./missing-letters";
 
 class Checker extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       valid: false,
-      text: '',
+      text: this.props.text || '',
     };
+  }
+
+  componentDidMount() {
+    this.validate();
   }
 
   validate() {
@@ -33,7 +37,7 @@ class Checker extends React.Component {
 
   render() {
     return (
-      <>
+      <div className={styles.checker}>
         <p
           className={`${styles.status} ${this.state.valid ? styles.valid : ""}`}
         >
@@ -42,11 +46,12 @@ class Checker extends React.Component {
         <textarea
           className={`${styles.entry} ${this.state.valid ? styles.valid : ""}`}
           onChange={this.textChanged.bind(this)}
+          defaultValue={this.props.text}
         >
         </textarea>
         <p>Characters: {this.state.text.length}</p>
         <MissingLetters text={this.state.text} />
-      </>
+      </div>
     );
   }
 }
