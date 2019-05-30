@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-import styles from "../styles/checker.module.scss"
+import styles from "../styles/checker.module.scss";
 import MissingLetters from "./missing-letters";
 
 class Checker extends React.Component {

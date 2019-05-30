@@ -14,4 +14,5 @@ storiesOf('Checker', module)
 
 storiesOf('Missing letters', module)
   .add('initial state', () => <MissingLetters text="" />)
-  .add('partial pangram', () => <MissingLetters text={partial} />);
+  .add('partial pangram', () => <MissingLetters text={partial} />)
+  .add('valid pangram', () => <MissingLetters text={pangram} />);
