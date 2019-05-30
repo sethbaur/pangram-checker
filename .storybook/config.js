@@ -1,6 +1,7 @@
 import { configure } from '@storybook/react';
 import { addDecorator } from '@storybook/react'; // <- or your view layer
 import { withTests } from '@storybook/addon-jest';
+import { jsxDecorator } from 'storybook-addon-jsx';
 
 import results from '../.jest-test-results.json';
 
@@ -11,6 +12,8 @@ function loadStories() {
 }
 
 configure(loadStories, module);
+
+addDecorator(jsxDecorator);
 
 addDecorator(
   withTests({

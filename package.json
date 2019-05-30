@@ -37,7 +37,8 @@
     "jest-dom": "^3.4.0",
     "prettier": "^1.17.1",
     "react-test-renderer": "^16.8.6",
-    "react-testing-library": "^7.0.1"
+    "react-testing-library": "^7.0.1",
+    "storybook-addon-jsx": "^7.1.2"
   },
   "keywords": [
     "gatsby"
@@ -53,7 +54,8 @@
     "test:generate-output": "jest --config jest.config.js --json --outputFile=.jest-test-results.json || 0",
     "storybook": "start-storybook -p 6006",
     "prebuild:storybook": "npm run test:generate-output",
-    "build:storybook": "build-storybook -c .storybook -o build/"
+    "build:storybook": "build-storybook -c .storybook -o build/",
+    "deploy:storybook": "surge build pangram-storybook.surge.sh"
   },
   "repository": {
     "type": "git",
